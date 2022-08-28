@@ -9,8 +9,13 @@ class City {
                     'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
                 }
 
-            }).then(response => response.json())
-            .then(response => console.log(response.data))
+            })
+            const d = await res.json()
+            if (d.data.length > 0) {
+                return d
+              } else {
+                return false
+              }
         }catch(err){
             console.log(err)
         }
